@@ -11,7 +11,7 @@ fi
 
 ELEMENT_DATA=$($PSQL "SELECT atomic_number, name, symbol, type, atomic_mass, melting_point_celsius, boiling_point_celsius FROM elements JOIN properties USING(atomic_number) JOIN types USING(type_id) WHERE atomic_number::text = '$1' OR symbol = '$1' OR name = '$1';")
 
-if [[ -z $ELEMENT_DATA ]]
+if [[ -z $ELEMENT_DATA ]] #Checks if there actually was an element with the given arg
 then
   echo -e "I could not find that element in the database."
   exit 
