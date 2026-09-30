@@ -1,8 +1,9 @@
 #!/bin/bash
 # Script to query data about elements on the periodic table
+
 PSQL="psql --username=freecodecamp --dbname=periodic_table -t --no-align -c"
 
-if [[ -z $1 ]]
+if [[ -z $1 ]] #Checks if no argument was provided on execution
 then
   echo -e "Please provide an element as an argument."
   exit
